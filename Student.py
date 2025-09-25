@@ -10,4 +10,40 @@ class Student:
         # sample = Student1 = Student(1, "Alice", "alice@example.com", {"Math": "A", "Science": "B"}, ["Math", "Science"])
         # result = Student ID: 1, Name: Alice, Email: alice@example.com, Grades: {'Math': 'A', 'Science': 'B'}, Courses: ['Math', 'Science']
     
+class StudentRecords:
+    def __init__(self):
+        self.students = []                                                                          # list to hold student records
     
+    def add_student(self, student_id, student_name, email, grades=None, courses=None):
+        new_student = Student(student_id, student_name, email, grades, courses)                     # create a new student object
+        self.students.append(new_student)                                                          # add the new student to the list
+        # append the new student to the list
+        print("Student added successfully.")
+    
+
+
+
+    def update_student(self, student_id, email=None, grades=None, courses=None):
+        for student in self.students:       # loop through the list of students
+            if student.id_name[0] == student_id:                                                        # check if the student id matches
+                if email is not None: # update if provided
+                    student.email = email
+                if grades is not None:
+                    student.grades = grades
+                if courses is not None:
+                    student.courses = courses
+                print("Student updated successfully.")
+                return
+        print("Student not found.")
+    
+
+
+
+    def delete_student(self, student_id): # delete a student by id
+        for student in self.students: # loop through the list of students
+            if student.id_name[0] == student_id: 
+                self.students.remove(student)
+                # removed student from the list
+                print("Student deleted successfully.")
+                return
+        print("Student not found.")    
