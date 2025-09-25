@@ -75,3 +75,50 @@ class StudentRecords:
             if student.id_name[0] == student_id:
                 return student  # show student details
         return "Student not found."
+
+records = StudentRecords()
+records.add_student(1, "Alice", "alice@example.com", {"Math": "A", "Science": "B"}, ["Math", "Science"])
+records.add_student(2, "Bob", "bob@example.com", {"Math": "C", "English": "B"}, ["Math", "English"])
+records.add_student(3, "Charlie", "charlie@example.com", {"History": "B", "Math": "B"}, ["History", "Math"])
+records.add_student(4, "Diana", "diana@example.com", {"Science": "A", "Math": "C"}, ["Science", "Math"])
+records.add_student(5, "Eve", "eve@example.com", {"Math": "B", "English": "A"}, ["Math", "English"])
+# adding students in StudentRecords
+
+
+
+print("\n === All Students === \n")
+for i in records.students:
+    print(i)
+# showing all students
+
+
+
+print("\n\n\n=== Update Result for Student ===\n")
+records.update_student(1, email="alice_new@example.com", grades={"Math": "A", "Science": "A"})
+# updating student with id
+print("\n === Updated All Students === \n")
+for i in records.students:
+    print(i)
+
+
+print("\n\n\n=== Delete Student ===\n")
+records.delete_student(1)
+# deleting student with id
+print("\n === Deleted One Students === \n")
+for i in records.students:
+    print(i)
+
+
+
+print("\n\n\n=== Enroll Course ===\n")
+records.enroll_course(2, "Science")
+# enrolling student with id to a course
+print("\n === Show Enrolled Course Students === \n")
+for i in records.students:
+    print(i)
+
+
+
+print("\n\n\n=== Search Result for Student 2 ===")
+print(records.search_student(2))
+# search using id
